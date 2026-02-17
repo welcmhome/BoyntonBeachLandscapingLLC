@@ -31,7 +31,7 @@ export default function Hero() {
         {/* Background image — desktop only; shifted right + slight zoom to show person */}
         <div className="absolute inset-0 z-0 hidden lg:block overflow-hidden">
           <img
-            src="/assets/hero-technician-truck.png"
+            src="/assets/hero-technician-palm.png"
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover object-right scale-105"
@@ -118,7 +118,7 @@ export default function Hero() {
         {/* Mobile only: image below content — modest size, with dark overlay */}
         <div className="lg:hidden relative w-full h-[40vh] min-h-[220px] flex-shrink-0 overflow-hidden">
           <img
-            src="/assets/hero-technician-truck.png"
+            src="/assets/hero-technician-palm.png"
             alt="In & Out Florida Pest Control technician with company truck"
             className="w-full h-full object-cover object-center"
           />
