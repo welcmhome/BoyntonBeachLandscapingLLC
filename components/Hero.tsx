@@ -48,7 +48,8 @@ export default function Hero() {
             transition={{ duration: 0.4 }}
             className="text-xs font-semibold text-gray-500 lg:text-gray-300 uppercase tracking-[0.2em] mb-4"
           >
-            South Florida
+            <span className="lg:hidden">In & Out Pest Control</span>
+            <span className="hidden lg:inline">South Florida</span>
           </motion.p>
 
           <motion.h1

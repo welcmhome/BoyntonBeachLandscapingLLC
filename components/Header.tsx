@@ -166,13 +166,13 @@ export default function Header() {
             : 'bg-transparent shadow-none border-transparent'
         } ${mobileHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
-        {/* Top utility bar — gray; mobile: "South Florida" centered, desktop: "Service for South Florida" + phone */}
-        <div className="bg-gray-300 text-gray-800">
+        {/* Top utility bar — dark gray; mobile: "Service for South Florida" centered, desktop: same + phone left */}
+        <div className="bg-gray-500 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 py-2.5 lg:py-2 flex items-center justify-center sm:justify-between gap-4 text-sm">
             {topBarConfig.showPhone && (
               <a
                 href={`tel:${topBarConfig.phoneNumber}`}
-                className="hidden sm:inline-flex items-center gap-1.5 flex-shrink-0 text-gray-700 hover:text-gray-900 transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 flex-shrink-0 text-white/95 hover:text-white transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -181,15 +181,12 @@ export default function Header() {
               </a>
             )}
             <div className="flex items-center gap-2 min-w-0 flex-1 justify-center sm:justify-end">
-              <svg className="w-4 h-4 flex-shrink-0 text-gray-600 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <svg className="w-4 h-4 flex-shrink-0 text-white/90 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <span className="truncate text-center sm:text-right">
-                <span className="sm:hidden font-semibold">{topBarConfig.serviceLabel}</span>
-                <span className="hidden sm:inline">
-                  Service for <strong>{topBarConfig.serviceLabel}</strong>
-                </span>
+                Service for <strong>{topBarConfig.serviceLabel}</strong>
               </span>
             </div>
           </div>
