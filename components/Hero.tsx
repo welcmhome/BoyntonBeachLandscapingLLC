@@ -41,7 +41,7 @@ export default function Hero() {
         </div>
 
         {/* Content — white on mobile (tall so only ~1/3 of image visible), over background on desktop */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-5 xl:pl-8 lg:pr-8 pt-40 sm:pt-44 lg:pt-44 pb-12 sm:pb-14 lg:pb-32 bg-white lg:bg-transparent min-h-[70vh] lg:min-h-0 flex flex-col justify-start lg:justify-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-5 xl:pl-8 lg:pr-8 pt-40 sm:pt-44 lg:pt-44 pb-12 sm:pb-14 lg:pb-32 bg-white lg:bg-transparent min-h-[62vh] lg:min-h-0 flex flex-col justify-start lg:justify-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

@@ -194,18 +194,14 @@ export default function Header() {
 
         <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-5">
           <div className="relative flex items-center justify-between h-20 sm:h-24">
-            {/* Desktop: logo + text left */}
-            <Link href="/" className="hidden lg:flex items-center gap-3 group shrink-0 min-w-0">
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+            {/* Desktop: logo only, smaller */}
+            <Link href="/" className="hidden lg:flex items-center shrink-0" aria-label="In & Out Florida Pest Control">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                 <img
                   src="/assets/LOGO%20PEST%20CONTROL.png"
                   alt="In & Out Florida Pest Control"
                   className="w-full h-full object-contain"
                 />
-              </div>
-              <div className={`${!isScrolled ? 'text-white' : ''}`}>
-                <div className={`font-bold text-base sm:text-lg ${isScrolled ? 'text-gray-900' : 'text-white'}`}>In & Out</div>
-                <div className={`text-xs sm:text-sm font-semibold ${isScrolled ? 'text-primary-green' : 'text-white/90'}`}>Florida Pest Control</div>
               </div>
             </Link>
 
