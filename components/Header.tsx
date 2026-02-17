@@ -193,23 +193,30 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Orkin-style service type bar: red tab with angled top-right, dark tab with matching angle */}
-        <div className="flex w-full">
+        {/* Service type bar — Orkin-style: red active tab, dark grey inactive, diagonal divider */}
+        <div className="relative flex w-full bg-gray-800">
           <button
             type="button"
             onClick={() => setServiceType('residential')}
-            className={`flex-1 py-3 sm:py-4 pl-6 pr-8 font-bold text-base sm:text-lg text-white transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/50 [clip-path:polygon(0_0,calc(100%-1.5rem)_0,100%_100%,0_100%)] ${
-              serviceType === 'residential' ? 'bg-red-600' : 'bg-gray-700'
+            className={`relative flex-1 min-w-0 py-4 px-6 sm:px-8 font-bold text-lg text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-inset ${
+              serviceType === 'residential' ? 'bg-red-600' : 'bg-gray-800 hover:bg-gray-700'
             }`}
           >
             Residential
+            {/* Diagonal cut: grey triangle on right edge so red/grey meets Commercial in one line */}
+            <span
+              className="absolute right-0 top-0 h-full w-8 bg-gray-800 pointer-events-none"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }}
+              aria-hidden
+            />
           </button>
           <button
             type="button"
             onClick={() => setServiceType('commercial')}
-            className={`flex-1 py-3 sm:py-4 pl-8 pr-6 font-bold text-base sm:text-lg text-white transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/50 [clip-path:polygon(1.5rem_0,100%_0,100%_100%,0_100%)] ${
-              serviceType === 'commercial' ? 'bg-red-600' : 'bg-gray-800'
+            className={`relative flex-1 min-w-0 -ml-8 py-4 pl-10 pr-6 sm:pl-12 sm:pr-8 font-bold text-lg text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-inset ${
+              serviceType === 'commercial' ? 'bg-red-600' : 'bg-gray-800 hover:bg-gray-700'
             }`}
+            style={{ clipPath: 'polygon(2rem 0, 100% 0, 100% 100%, 0 100%)' }}
           >
             Commercial
           </button>
