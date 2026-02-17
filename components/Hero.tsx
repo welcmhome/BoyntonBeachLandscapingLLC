@@ -33,7 +33,7 @@ export default function Hero() {
         {/* Background image — desktop only; shifted right + slight zoom to show person */}
         <div className="absolute inset-0 z-0 hidden lg:block overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1523348837708-15d796a3037d?w=1600&q=80"
+            src="/assets/hero-landscaping.png"
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover object-right scale-105"
@@ -128,7 +128,7 @@ export default function Hero() {
         {/* Mobile only: image below content — modest size, with dark overlay */}
         <div className="lg:hidden relative w-full h-[40vh] min-h-[220px] flex-shrink-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1523348837708-15d796a3037d?w=1600&q=80"
+            src="/assets/hero-landscaping.png"
             alt="Boynton Beach Landscaping LLC — quality landscaping and gardening"
             className="w-full h-full object-cover object-center"
           />
