@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion'
 
-const pestTypes = ['Ants', 'Roaches', 'Rodents', 'Termites', 'Spiders', 'Bed Bugs']
-
 const heroReviewSnippets = [
   { name: 'Maria R.', location: 'Boca Raton', quote: 'Very professional… explained everything in Spanish. Highly recommend.' },
   { name: 'James T.', location: 'Fort Lauderdale', quote: 'Thorough treatment, followed up. Fair price and no pressure.' },
@@ -86,25 +84,6 @@ export default function Hero() {
           >
             No long-term contracts · Free estimates
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-10 pt-8 border-t border-gray-200"
-          >
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">We eliminate</p>
-            <div className="flex flex-wrap gap-2">
-              {pestTypes.map((pest) => (
-                <span
-                  key={pest}
-                  className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg border border-gray-200"
-                >
-                  {pest}
-                </span>
-              ))}
-            </div>
-          </motion.div>
         </div>
 
         {/* Right: Image — on mobile full-bleed behind text, on lg side-by-side */}
