@@ -25,10 +25,25 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative pt-20 lg:pt-24 overflow-hidden bg-white">
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-[60vh] lg:min-h-[72vh] items-center">
-        {/* Left: Minimal copy */}
-        <div className="relative z-10 flex flex-col justify-center px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 py-14 sm:py-16 lg:py-0 order-2 lg:order-1">
+    <section className="relative overflow-hidden bg-white">
+      {/* Full-bleed hero background */}
+      <div className="relative min-h-[60vh] lg:min-h-[72vh] flex items-center">
+        {/* Background image — covers entire hero */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/assets/IMAGE%204.JPG"
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+          {/* Overlay: readable text on left, image shows through on right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent" />
+          {/* Subtle top tint so transparent header has contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
+        </div>
+
+        {/* Content — same structure, over the background */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 pt-24 sm:pt-28 lg:pt-24 pb-14 sm:pb-16 lg:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,7 +76,6 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-          {/* Green accent bar — matches header */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
@@ -100,18 +114,6 @@ export default function Hero() {
               Our services →
             </a>
           </motion.div>
-        </div>
-
-        {/* Right: Image — clean, no heavy overlay */}
-        <div className="relative lg:order-2 h-[40vh] sm:h-[45vh] lg:h-full min-h-[280px] lg:min-h-0 order-1 lg:order-2">
-          <div className="absolute inset-0 lg:pl-8">
-            <img
-              src="/assets/IMAGE%204.JPG"
-              alt="Pest control technician at residential property"
-              className="w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0 lg:bg-gradient-to-l lg:from-white lg:via-white/20 lg:to-transparent" />
-          </div>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 const navLinks = [
@@ -13,15 +13,36 @@ const navLinks = [
   { href: '#contact', label: 'Contact', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
 ]
 
+const SCROLL_THRESHOLD = 20
+const MOBILE_HIDE_THRESHOLD = 60
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mobileHeaderVisible, setMobileHeaderVisible] = useState(true)
+  const lastScrollYRef = useRef(0)
 
   useEffect(() => {
-    const updateScrolled = () => setIsScrolled(window.scrollY > 20)
-    updateScrolled() // sync on mount so transparent state is correct
-    window.addEventListener('scroll', updateScrolled)
-    return () => window.removeEventListener('scroll', updateScrolled)
+    const updateScroll = () => {
+      const y = window.scrollY
+      setIsScrolled(y > SCROLL_THRESHOLD)
+
+      if (window.innerWidth < 1024) {
+        if (y <= MOBILE_HIDE_THRESHOLD) {
+          setMobileHeaderVisible(true)
+        } else if (y > lastScrollYRef.current) {
+          setMobileHeaderVisible(false)
+        } else {
+          setMobileHeaderVisible(true)
+        }
+        lastScrollYRef.current = y
+      } else {
+        setMobileHeaderVisible(true)
+      }
+    }
+    updateScroll()
+    window.addEventListener('scroll', updateScroll, { passive: true })
+    return () => window.removeEventListener('scroll', updateScroll)
   }, [])
 
   useEffect(() => {
@@ -137,11 +158,11 @@ export default function Header() {
       </AnimatePresence>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent shadow-none border-transparent ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 lg:translate-y-0 ${
           isScrolled
-            ? 'lg:bg-white lg:shadow-md'
-            : 'lg:bg-white/95 lg:backdrop-blur-sm lg:border-b lg:border-gray-100'
-        }`}
+            ? 'bg-white shadow-md border-b border-gray-100'
+            : 'bg-transparent shadow-none border-transparent'
+        } ${mobileHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
         <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-20 sm:h-24">
@@ -153,9 +174,9 @@ export default function Header() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="hidden sm:block">
-                <div className="font-bold text-base sm:text-lg text-gray-900">In & Out</div>
-                <div className="text-xs sm:text-sm text-primary-green font-semibold">Florida Pest Control</div>
+              <div className={`hidden sm:block ${!isScrolled ? 'text-white' : ''}`}>
+                <div className={`font-bold text-base sm:text-lg ${isScrolled ? 'text-gray-900' : 'text-white'}`}>In & Out</div>
+                <div className={`text-xs sm:text-sm font-semibold ${isScrolled ? 'text-primary-green' : 'text-white/90'}`}>Florida Pest Control</div>
               </div>
             </Link>
 
@@ -169,39 +190,38 @@ export default function Header() {
                     const el = document.querySelector(link.href)
                     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
                   }}
-                  className="text-gray-700 hover:text-primary-green font-medium text-sm transition-colors"
+                  className={`font-medium text-sm transition-colors ${isScrolled ? 'text-gray-700 hover:text-primary-green' : 'text-white/95 hover:text-white'}`}
                 >
                   {link.label}
                 </a>
               ))}
               <a
                 href="tel:9542134572"
-                className="px-5 py-2.5 bg-gray-900 text-white font-bold rounded-none text-sm hover:bg-black transition-colors"
+                className={`px-5 py-2.5 font-bold rounded-none text-sm transition-colors ${isScrolled ? 'bg-gray-900 text-white hover:bg-black' : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm'}`}
               >
                 Call Now
               </a>
             </div>
 
-            {/* Animated hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden shrink-0 relative w-12 h-12 flex items-center justify-center rounded-none bg-gray-100 hover:bg-gray-200 active:scale-95 transition-all"
+              className={`lg:hidden shrink-0 relative w-12 h-12 flex items-center justify-center rounded-none active:scale-95 transition-all ${isScrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/20 hover:bg-white/30'}`}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
             >
               <div className="w-6 h-5 flex flex-col justify-between">
                 <motion.span
-                  className="block h-0.5 w-full bg-gray-800 rounded-none origin-center"
+                  className={`block h-0.5 w-full rounded-none origin-center ${isScrolled ? 'bg-gray-800' : 'bg-white'}`}
                   animate={isMobileMenuOpen ? { y: 9, rotate: 45 } : { y: 0, rotate: 0 }}
                   transition={{ type: 'spring', damping: 22, stiffness: 300 }}
                 />
                 <motion.span
-                  className="block h-0.5 w-full bg-gray-800 rounded-none"
+                  className={`block h-0.5 w-full rounded-none ${isScrolled ? 'bg-gray-800' : 'bg-white'}`}
                   animate={isMobileMenuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                   transition={{ duration: 0.15 }}
                 />
                 <motion.span
-                  className="block h-0.5 w-full bg-gray-800 rounded-none origin-center"
+                  className={`block h-0.5 w-full rounded-none origin-center ${isScrolled ? 'bg-gray-800' : 'bg-white'}`}
                   animate={isMobileMenuOpen ? { y: -9, rotate: -45 } : { y: 0, rotate: 0 }}
                   transition={{ type: 'spring', damping: 22, stiffness: 300 }}
                 />
