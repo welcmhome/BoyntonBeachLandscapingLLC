@@ -243,7 +243,7 @@ export default function Header() {
                     const el = document.querySelector(link.href)
                     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
                   }}
-                  className={`font-medium text-sm transition-colors ${isScrolled ? 'text-gray-700 hover:text-primary-green' : 'text-white/95 hover:text-white'}`}
+                  className={`font-bold text-sm transition-colors ${isScrolled ? 'text-gray-900 hover:text-primary-green' : 'text-white/95 hover:text-white'}`}
                 >
                   {link.label}
                 </a>
