@@ -36,17 +36,17 @@ export default function Hero() {
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent pointer-events-none" />
         </div>
 
         {/* Content — white on mobile (tall so only ~1/3 of image visible), over background on desktop */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 pt-24 sm:pt-28 lg:pt-36 pb-10 sm:pb-12 lg:pb-32 bg-white lg:bg-transparent min-h-[70vh] lg:min-h-0 flex flex-col justify-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 pt-24 sm:pt-28 lg:pt-44 pb-10 sm:pb-12 lg:pb-32 bg-white lg:bg-transparent min-h-[70vh] lg:min-h-0 flex flex-col justify-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-xs font-semibold text-gray-500 uppercase tracking-[0.2em] mb-4"
+            className="text-xs font-semibold text-gray-500 lg:text-gray-300 uppercase tracking-[0.2em] mb-4"
           >
             South Florida
           </motion.p>
@@ -55,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.06 }}
-            className="font-oswald text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] uppercase tracking-tight"
+            className="font-oswald text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-gray-900 lg:text-white leading-[1.05] uppercase tracking-tight"
           >
             Pests out.<br />
             <span className="inline-block overflow-hidden h-[1.05em] leading-none align-top min-w-[14ch] sm:min-w-[16ch]">
@@ -66,7 +66,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -24, opacity: 0 }}
                   transition={{ duration: 0.35 }}
-                  className="block text-primary-green"
+                  className="block text-primary-green lg:text-primary-green-light"
                 >
                   {ROTATING_PHRASES[phraseIndex]}
                 </motion.span>
@@ -78,14 +78,14 @@ export default function Hero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="origin-left mt-5 h-1 w-24 bg-primary-green"
+            className="origin-left mt-5 h-1 w-24 bg-primary-green lg:bg-primary-green-light"
           />
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.25 }}
-            className="hidden lg:block mt-6 text-base sm:text-lg text-gray-600 max-w-sm"
+            className="hidden lg:block mt-6 text-base sm:text-lg text-gray-600 lg:text-gray-300 max-w-sm"
           >
             In & Out Florida Pest Control — licensed, same-day, bilingual. Free estimates.
           </motion.p>
@@ -98,7 +98,7 @@ export default function Hero() {
           >
             <a
               href="tel:9542134572"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gray-900 text-white font-bold rounded-none text-base hover:bg-black transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gray-900 lg:bg-white lg:text-gray-900 text-white font-bold rounded-none text-base hover:bg-black lg:hover:bg-gray-100 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -107,7 +107,7 @@ export default function Hero() {
             </a>
             <a
               href="#services"
-              className="inline-flex items-center text-gray-700 font-semibold text-sm border-b-2 border-transparent hover:border-primary-green hover:text-primary-green transition-colors"
+              className="inline-flex items-center text-gray-700 lg:text-gray-300 font-semibold text-sm border-b-2 border-transparent hover:border-primary-green hover:text-primary-green transition-colors"
             >
               Our services →
             </a>

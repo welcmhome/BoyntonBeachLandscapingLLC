@@ -171,9 +171,9 @@ export default function Header() {
             : 'bg-transparent shadow-none border-transparent'
         } ${mobileHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
-        {/* Top utility bar — service area / contact (templatable per company) */}
-        <div className="bg-gray-800 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-2 flex items-center justify-between gap-4 text-sm">
+        {/* Top utility bar — service area / contact (templatable per company); mobile = green to fit vibe */}
+        <div className="bg-primary-green lg:bg-gray-800 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-2.5 lg:py-2 flex items-center justify-between gap-4 text-sm">
             <div className="flex items-center gap-2 min-w-0">
               <svg className="w-4 h-4 flex-shrink-0 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -249,10 +249,15 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="tel:9542134572"
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  const el = document.querySelector('#contact')
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }}
                 className="px-5 py-2.5 font-bold rounded-none text-sm bg-primary-green text-white hover:bg-primary-green-dark transition-colors"
               >
-                Call Now
+                Get a quote
               </a>
             </div>
 
