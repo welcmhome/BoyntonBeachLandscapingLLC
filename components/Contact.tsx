@@ -39,7 +39,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-gray-900 font-semibold text-sm uppercase tracking-wider text-center mb-2"
+          className="text-primary-blue font-semibold text-sm uppercase tracking-wider text-center mb-2"
         >
           Request a quote
         </motion.p>

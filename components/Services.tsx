@@ -51,14 +51,14 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 bg-gray-50 border-t border-gray-200" id="services">
+    <section ref={ref} className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 bg-white border-t border-gray-200" id="services">
       <div className="max-w-6xl mx-auto">
-        <div className="border-l-4 border-gray-900 pl-6 mb-14">
+        <div className="border-l-4 border-primary-blue pl-6 mb-14">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-gray-900 font-semibold text-sm uppercase tracking-wider"
+            className="text-primary-blue font-semibold text-sm uppercase tracking-wider"
           >
             What we offer
           </motion.p>

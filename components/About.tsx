@@ -31,8 +31,8 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="border-l-4 border-gray-900 pl-6 mb-8">
-              <p className="text-gray-900 font-semibold text-sm uppercase tracking-wider mb-1">About Us</p>
+            <div className="border-l-4 border-primary-blue pl-6 mb-8">
+              <p className="text-primary-blue font-semibold text-sm uppercase tracking-wider mb-1">About Us</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
                 Boynton Beach Landscaping LLC
               </h2>
@@ -43,10 +43,10 @@ export default function About() {
             </p>
 
             <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start">
-              <div className="px-4 py-2 bg-gray-900 text-white font-semibold rounded-none text-sm">
+              <div className="px-4 py-2 bg-primary-blue text-white font-semibold rounded-none text-sm">
                 20+ Years Experience
               </div>
-              <div className="px-4 py-2 bg-gray-900 text-white font-semibold rounded-none text-sm">
+              <div className="px-4 py-2 bg-accent-orange text-white font-semibold rounded-none text-sm">
                 Free Estimates
               </div>
               <div className="px-4 py-2 bg-gray-900 text-white font-semibold rounded-none text-sm">

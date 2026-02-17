@@ -5,22 +5,10 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const features = [
-  {
-    title: '20+ Years Experience',
-    description: 'Built an excellent reputation for client satisfaction.',
-  },
-  {
-    title: 'Free Estimates',
-    description: 'No obligation. We give honest, competitive quotes.',
-  },
-  {
-    title: 'Residential & Commercial',
-    description: 'Homes, offices, and everything in between.',
-  },
-  {
-    title: 'Attention to Detail',
-    description: 'We treat your property as if it were our own.',
-  },
+  { title: '20+ Years Experience', description: 'Built an excellent reputation for client satisfaction.', color: 'blue' },
+  { title: 'Free Estimates', description: 'No obligation. We give honest, competitive quotes.', color: 'orange' },
+  { title: 'Residential & Commercial', description: 'Homes, offices, and everything in between.', color: 'yellow' },
+  { title: 'Attention to Detail', description: 'We treat your property as if it were our own.', color: 'blue' },
 ]
 
 export default function WhyChooseUs() {
@@ -28,7 +16,7 @@ export default function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="why-choose-us" ref={ref} className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 bg-slate-50 border-t border-gray-200">
+    <section id="why-choose-us" ref={ref} className="py-20 sm:py-28 px-6 sm:px-8 lg:px-12 bg-gradient-to-b from-amber-50/40 to-slate-50 border-t border-gray-200">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,23 +24,31 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
-          {features.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-50 rounded-none p-6 border border-gray-200 text-center hover:border-primary-blue/40 hover:shadow-md transition-all"
-            >
-              <div className="w-12 h-12 mx-auto mb-3 rounded-none bg-primary-blue/15 flex items-center justify-center">
-                <svg className="w-6 h-6 text-primary-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-gray-900">{item.title}</h3>
-              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
-            </motion.div>
-          ))}
+          {features.map((item, index) => {
+            const isBlue = item.color === 'blue'
+            const isOrange = item.color === 'orange'
+            const isYellow = item.color === 'yellow'
+            const bgClass = isBlue ? 'bg-primary-blue/15' : isOrange ? 'bg-accent-orange/15' : 'bg-accent-yellow/20'
+            const iconClass = isBlue ? 'text-primary-blue' : isOrange ? 'text-accent-orange' : 'text-accent-yellow'
+            const borderHover = isBlue ? 'hover:border-primary-blue/40' : isOrange ? 'hover:border-accent-orange/40' : 'hover:border-accent-yellow/50'
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`bg-white rounded-none p-6 border border-gray-200 text-center ${borderHover} hover:shadow-md transition-all`}
+              >
+                <div className={`w-12 h-12 mx-auto mb-3 rounded-none ${bgClass} flex items-center justify-center`}>
+                  <svg className={`w-6 h-6 ${iconClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-gray-900">{item.title}</h3>
+                <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

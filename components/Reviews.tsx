@@ -63,7 +63,7 @@ export default function Reviews() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="reviews" ref={ref} className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-white border-t border-gray-200">
+    <section id="reviews" ref={ref} className="py-24 sm:py-32 px-6 sm:px-8 lg:px-12 bg-gray-50 border-t border-gray-200">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

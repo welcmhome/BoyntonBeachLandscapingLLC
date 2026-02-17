@@ -156,8 +156,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust bar — green to match logo; single row on mobile like desktop */}
-      <div className="relative z-20 bg-primary-blue text-white py-3 px-4 lg:py-4 lg:px-6">
+      {/* Trust bar — turquoise gradient */}
+      <div className="relative z-20 bg-gradient-to-r from-primary-blue to-primary-blue-light text-white py-3 px-4 lg:py-4 lg:px-6">
         <div className="max-w-5xl mx-auto flex flex-nowrap justify-center gap-4 sm:gap-6 lg:gap-12 text-center text-xs sm:text-sm font-semibold overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <span className="flex items-center gap-2">
             <svg className="w-5 h-5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
