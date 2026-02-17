@@ -41,7 +41,7 @@ export default function Hero() {
         </div>
 
         {/* Content — white on mobile (tall so only ~1/3 of image visible), over background on desktop */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 pt-24 sm:pt-28 lg:pt-28 pb-10 sm:pb-12 lg:pb-24 bg-white lg:bg-transparent min-h-[85vh] lg:min-h-0 flex flex-col justify-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 pt-24 sm:pt-28 lg:pt-28 pb-10 sm:pb-12 lg:pb-24 bg-white lg:bg-transparent min-h-[70vh] lg:min-h-0 flex flex-col justify-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.06 }}
-            className="font-oswald text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] uppercase tracking-tight"
+            className="font-oswald text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] uppercase tracking-tight"
           >
             Pests out.<br />
             <span className="inline-block overflow-hidden h-[1.05em] leading-none align-top min-w-[14ch] sm:min-w-[16ch]">
@@ -85,7 +85,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.25 }}
-            className="mt-6 text-base sm:text-lg text-gray-600 max-w-sm"
+            className="hidden lg:block mt-6 text-base sm:text-lg text-gray-600 max-w-sm"
           >
             In & Out Florida Pest Control — licensed, same-day, bilingual. Free estimates.
           </motion.p>
@@ -98,7 +98,7 @@ export default function Hero() {
           >
             <a
               href="tel:9542134572"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gray-900 text-white font-bold rounded-none text-base hover:bg-black transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-full lg:w-auto px-8 py-4 lg:px-7 lg:py-3.5 bg-gray-900 text-white font-bold rounded-none text-lg lg:text-base hover:bg-black transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
