@@ -13,6 +13,15 @@ const navLinks = [
   { href: '#contact', label: 'Contact', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
 ]
 
+const headerReviewSnippets = [
+  { name: 'Maria R.', location: 'Boca Raton', quote: 'Very professional… explained everything in Spanish. Highly recommend.' },
+  { name: 'James T.', location: 'Fort Lauderdale', quote: 'Thorough treatment, followed up. Fair price and no pressure.' },
+  { name: 'Sandra L.', location: 'Coral Springs', quote: 'Yard and house have been pest-free. Friendly and always on schedule.' },
+  { name: 'David M.', location: 'Pembroke Pines', quote: 'Honest about what we needed. Work done fast, clear report.' },
+  { name: 'Carmen G.', location: 'Hollywood', quote: 'Only ones who could come the next day. Very respectful.' },
+  { name: 'Robert K.', location: 'Parkland', quote: 'No more spiders, quote very reasonable. Will use again.' },
+]
+
 const SCROLL_THRESHOLD = 20
 const MOBILE_HIDE_THRESHOLD = 60
 
@@ -164,9 +173,33 @@ export default function Header() {
             : 'bg-transparent shadow-none border-transparent'
         } ${mobileHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
+        {/* Scrolling reviews — very top of site */}
+        <div className="border-b border-gray-200/80 bg-gray-50/95 py-2 overflow-hidden">
+          <div className="flex w-max animate-marquee">
+            {[...headerReviewSnippets, ...headerReviewSnippets].map((r, i) => (
+              <div key={i} className="flex items-center gap-4 px-8 flex-shrink-0">
+                <div className="flex gap-0.5 text-amber-400">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <svg key={s} className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-gray-600 text-sm font-medium whitespace-nowrap">
+                  {r.quote}
+                </span>
+                <span className="text-gray-400 text-xs whitespace-nowrap">
+                  — {r.name}, {r.location}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-20 sm:h-24">
-            <Link href="/" className="flex items-center gap-3 group shrink-0 min-w-0">
+          <div className="relative flex items-center justify-between h-20 sm:h-24">
+            {/* Desktop: logo + text left */}
+            <Link href="/" className="hidden lg:flex items-center gap-3 group shrink-0 min-w-0">
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
                 <img
                   src="/assets/LOGO%20PEST%20CONTROL.png"
@@ -174,10 +207,26 @@ export default function Header() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className={`hidden sm:block ${!isScrolled ? 'text-white' : ''}`}>
+              <div className={`${!isScrolled ? 'text-white' : ''}`}>
                 <div className={`font-bold text-base sm:text-lg ${isScrolled ? 'text-gray-900' : 'text-white'}`}>In & Out</div>
                 <div className={`text-xs sm:text-sm font-semibold ${isScrolled ? 'text-primary-green' : 'text-white/90'}`}>Florida Pest Control</div>
               </div>
+            </Link>
+
+            {/* Mobile: invisible spacer so logo stays centered */}
+            <div className="flex-1 lg:flex-none lg:w-0" aria-hidden />
+
+            {/* Mobile: centered logo */}
+            <Link
+              href="/"
+              className="lg:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex-shrink-0"
+              aria-label="In & Out Florida Pest Control"
+            >
+              <img
+                src="/assets/LOGO%20PEST%20CONTROL.png"
+                alt=""
+                className="w-full h-full object-contain"
+              />
             </Link>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -203,30 +252,42 @@ export default function Header() {
               </a>
             </div>
 
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden shrink-0 relative w-12 h-12 flex items-center justify-center rounded-none active:scale-95 transition-all ${isScrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/20 hover:bg-white/30'}`}
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMobileMenuOpen}
-            >
-              <div className="w-6 h-5 flex flex-col justify-between">
-                <motion.span
-                  className={`block h-0.5 w-full rounded-none origin-center ${isScrolled ? 'bg-gray-800' : 'bg-white'}`}
-                  animate={isMobileMenuOpen ? { y: 9, rotate: 45 } : { y: 0, rotate: 0 }}
-                  transition={{ type: 'spring', damping: 22, stiffness: 300 }}
-                />
-                <motion.span
-                  className={`block h-0.5 w-full rounded-none ${isScrolled ? 'bg-gray-800' : 'bg-white'}`}
-                  animate={isMobileMenuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-                  transition={{ duration: 0.15 }}
-                />
-                <motion.span
-                  className={`block h-0.5 w-full rounded-none origin-center ${isScrolled ? 'bg-gray-800' : 'bg-white'}`}
-                  animate={isMobileMenuOpen ? { y: -9, rotate: -45 } : { y: 0, rotate: 0 }}
-                  transition={{ type: 'spring', damping: 22, stiffness: 300 }}
-                />
-              </div>
-            </button>
+            {/* Mobile: phone icon + hamburger (black, right side) */}
+            <div className="flex lg:hidden items-center gap-1 flex-1 justify-end">
+              <a
+                href="tel:9542134572"
+                className="p-3 text-gray-900 hover:bg-gray-100 active:opacity-80 transition-all"
+                aria-label="Call"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </a>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-3 text-gray-900 hover:bg-gray-100 active:opacity-80 transition-all"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
+              >
+                <div className="w-6 h-5 flex flex-col justify-between">
+                  <motion.span
+                    className="block h-0.5 w-full bg-gray-900 rounded-none origin-center"
+                    animate={isMobileMenuOpen ? { y: 9, rotate: 45 } : { y: 0, rotate: 0 }}
+                    transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+                  />
+                  <motion.span
+                    className="block h-0.5 w-full bg-gray-900 rounded-none"
+                    animate={isMobileMenuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+                    transition={{ duration: 0.15 }}
+                  />
+                  <motion.span
+                    className="block h-0.5 w-full bg-gray-900 rounded-none origin-center"
+                    animate={isMobileMenuOpen ? { y: -9, rotate: -45 } : { y: 0, rotate: 0 }}
+                    transition={{ type: 'spring', damping: 22, stiffness: 300 }}
+                  />
+                </div>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
