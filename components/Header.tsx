@@ -149,13 +149,8 @@ export default function Header() {
               >
                 <a
                   href="tel:9542134572"
-                  className="flex items-center justify-center gap-3 w-full py-4 px-5 bg-gray-900 text-white font-bold rounded-none hover:bg-black active:scale-[0.98] transition-all shadow-lg shadow-gray-900/25"
+                  className="flex items-center justify-center w-full py-4 px-5 bg-gray-900 text-white font-bold rounded-none hover:bg-black active:scale-[0.98] transition-all shadow-lg shadow-gray-900/25"
                 >
-                  <span className="flex items-center justify-center w-10 h-10 rounded-none bg-white/20">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </span>
                   Call (954) 213-4572
                 </a>
               </motion.div>
@@ -172,7 +167,7 @@ export default function Header() {
         } ${mobileHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
         {/* Top utility bar — service area / contact (templatable); black on all breakpoints */}
-        <div className="bg-gray-900 text-white">
+        <div className="bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 lg:py-2 flex items-center justify-between gap-4 text-sm">
             <div className="flex items-center gap-2 min-w-0 flex-1 lg:flex-initial justify-center lg:justify-start">
               <svg className="w-4 h-4 flex-shrink-0 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
