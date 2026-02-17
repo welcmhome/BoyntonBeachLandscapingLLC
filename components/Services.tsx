@@ -5,12 +5,12 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const localImages = [
-  '/assets/hero-landscaping.png',   // Landscaping Design & Installation
-  'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80', // lawn
-  'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80', // planting
-  'https://images.unsplash.com/photo-1598902108854-10e335adac99?w=800&q=80', // trees
-  'https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=800&q=80', // irrigation/water
-  'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80', // commercial/property
+  '/assets/2023-06-29.webp',   // Landscaping Design & Installation
+  '/assets/2023-09-12.webp',   // Lawn Care & Maintenance
+  '/assets/97f7ddda-1ff6-4793-b6ef-0a69ce7da30b.webp',   // Garden & Planting
+  '/assets/a71bdc31-bdfe-45bc-a0cb-3832f167f1fb.webp',   // Tree & Shrub Care
+  '/assets/aba95107-48fb-4f6a-a46e-2ac9b525c128.webp',   // Irrigation & Watering
+  '/assets/d5264d87-e33a-417a-b0f2-7ac95d107cc9.webp',   // Commercial Landscaping
 ]
 
 const services = [

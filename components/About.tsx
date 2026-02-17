@@ -19,7 +19,7 @@ export default function About() {
             className="relative aspect-[4/3] rounded-none overflow-hidden shadow-lg border border-gray-200"
           >
             <img
-              src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80"
+              src="/assets/2023-02-02.webp"
               alt="Boynton Beach Landscaping LLC — quality landscaping and gardening"
               className="w-full h-full object-cover"
             />
