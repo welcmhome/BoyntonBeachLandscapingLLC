@@ -42,7 +42,7 @@ export default function About() {
               We specialize in pest elimination and prevention throughout South Florida. Licensed, insured, and ready to protect your home or business from ants, roaches, rodents, termites, and more. Safer spaces — no long-term contracts.
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-8">
+            <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start">
               <div className="px-4 py-2 bg-gray-900 text-white font-semibold rounded-xl text-sm">
                 Licensed & Insured
               </div>
