@@ -33,7 +33,7 @@ export default function Hero() {
         {/* Background image — desktop only; shifted right + slight zoom to show person */}
         <div className="absolute inset-0 z-0 hidden lg:block overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80"
+            src="https://images.unsplash.com/photo-1523348837708-15d796a3037d?w=1600&q=80"
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover object-right scale-105"
@@ -59,8 +59,7 @@ export default function Hero() {
             transition={{ duration: 0.4 }}
             className="text-xs font-semibold text-gray-500 lg:text-gray-300 uppercase tracking-[0.2em] mb-4"
           >
-            <span className="lg:hidden">Boynton Beach Landscaping LLC</span>
-            <span className="hidden lg:inline">Boynton Beach & South Florida</span>
+            Boynton Beach Landscaping LLC
           </motion.p>
 
           <motion.h1
@@ -129,7 +128,7 @@ export default function Hero() {
         {/* Mobile only: image below content — modest size, with dark overlay */}
         <div className="lg:hidden relative w-full h-[40vh] min-h-[220px] flex-shrink-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80"
+            src="https://images.unsplash.com/photo-1523348837708-15d796a3037d?w=1600&q=80"
             alt="Boynton Beach Landscaping LLC — quality landscaping and gardening"
             className="w-full h-full object-cover object-center"
           />
