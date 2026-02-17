@@ -23,7 +23,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-sm font-semibold text-primary-blue uppercase tracking-widest mb-4"
+            className="text-sm font-semibold text-gray-900 uppercase tracking-widest mb-4"
           >
             Licensed & Insured · South Florida
           </motion.p>
@@ -41,9 +41,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-4 text-2xl sm:text-3xl font-semibold text-primary-blue"
+            className="mt-4 text-2xl sm:text-3xl font-semibold text-gray-900"
           >
-            Pests out — Peace in
+            Pests out — <span className="text-accent-red">Peace in</span>
           </motion.p>
 
           <motion.p
@@ -63,7 +63,7 @@ export default function Hero() {
           >
             <a
               href="tel:9542134572"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-blue text-white font-bold rounded-xl text-lg hover:bg-primary-blue-dark shadow-lg transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl text-lg hover:bg-black shadow-lg transition-all"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -72,7 +72,7 @@ export default function Hero() {
             </a>
             <a
               href="#services"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-primary-blue text-primary-blue font-semibold rounded-xl text-lg hover:bg-primary-blue/5 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-primary-green text-primary-green font-semibold rounded-xl text-lg hover:bg-primary-green/10 transition-all"
             >
               Our Services
             </a>
@@ -144,8 +144,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Trust bar — same blue as inspiration */}
-      <div className="relative z-20 bg-primary-blue text-white py-4 px-6">
+      {/* Trust bar — green to match logo */}
+      <div className="relative z-20 bg-primary-green text-white py-4 px-6">
         <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 sm:gap-12 text-center text-sm font-semibold">
           <span className="flex items-center gap-2">
             <svg className="w-5 h-5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
