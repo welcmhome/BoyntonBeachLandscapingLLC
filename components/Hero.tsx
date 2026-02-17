@@ -37,15 +37,20 @@ export default function Hero() {
             Licensed & Insured · South Florida
           </motion.p>
 
-          {/* Mobile: full brand name */}
-          <motion.h1
+          {/* Mobile: In & Out big + display font, Florida Pest Control smaller */}
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="lg:hidden text-3xl sm:text-4xl font-bold text-gray-900 leading-tight"
+            className="lg:hidden"
           >
-            In & Out Florida Pest Control
-          </motion.h1>
+            <div className="font-dm-serif text-4xl sm:text-5xl font-normal tracking-tight text-gray-900 leading-tight">
+              In & Out
+            </div>
+            <div className="text-xl sm:text-2xl font-semibold text-primary-green mt-1">
+              Florida Pest Control
+            </div>
+          </motion.div>
           {/* Desktop: unchanged */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -101,7 +106,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-4 text-sm text-gray-500"
+            className="mt-4 text-sm text-gray-500 text-center lg:text-left"
           >
             No long-term contracts · Free estimates
           </motion.p>

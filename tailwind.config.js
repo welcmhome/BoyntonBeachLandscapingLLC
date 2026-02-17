@@ -25,6 +25,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'dm-serif': ['var(--font-dm-serif)', 'Georgia', 'serif'],
       },
       keyframes: {
         'slow-zoom': {
