@@ -166,22 +166,13 @@ export default function Header() {
             : 'bg-transparent shadow-none border-transparent'
         } ${mobileHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
-        {/* Top utility bar — service area / contact (templatable); black on all breakpoints */}
+        {/* Top utility bar — Orkin-style: phone left, service area right */}
         <div className="bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 py-2.5 lg:py-2 flex items-center justify-between gap-4 text-sm">
-            <div className="flex items-center gap-2 min-w-0 flex-1 lg:flex-initial justify-center lg:justify-start">
-              <svg className="w-4 h-4 flex-shrink-0 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span className="truncate text-center lg:text-left">
-                Service for <strong>{topBarConfig.serviceLabel}</strong>
-              </span>
-            </div>
             {topBarConfig.showPhone && (
               <a
                 href={`tel:${topBarConfig.phoneNumber}`}
-                className="hidden sm:inline-flex items-center gap-1.5 flex-shrink-0 text-white/95 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 flex-shrink-0 text-white/95 hover:text-white transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -189,12 +180,26 @@ export default function Header() {
                 Call {topBarConfig.phoneDisplay}
               </a>
             )}
+            <div className="flex items-center gap-2 min-w-0 flex-1 justify-end">
+              <svg className="w-4 h-4 flex-shrink-0 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="truncate text-right">
+                Service for <strong>{topBarConfig.serviceLabel}</strong>
+              </span>
+            </div>
           </div>
         </div>
 
-        <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-5">
+        {/* Main nav: mobile = white bar (Orkin-style); desktop = transparent then white on scroll */}
+        <nav
+          className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-5 transition-colors duration-300 ${
+            isScrolled ? 'bg-white' : 'bg-white lg:bg-transparent'
+          }`}
+        >
           <div className="relative flex items-center justify-between h-20 sm:h-24">
-            {/* Desktop: logo only, smaller */}
+            {/* Desktop: logo left */}
             <Link href="/" className="hidden lg:flex items-center shrink-0" aria-label="In & Out Florida Pest Control">
               <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                 <img
@@ -205,8 +210,41 @@ export default function Header() {
               </div>
             </Link>
 
+            {/* Desktop: menu links centered (Orkin-style) */}
+            <div className="hidden lg:flex flex-1 justify-center items-center gap-6 xl:gap-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    const el = document.querySelector(link.href)
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }}
+                  className={`font-bold text-sm whitespace-nowrap transition-colors ${isScrolled ? 'text-gray-900 hover:text-primary-green' : 'text-white/95 hover:text-white'}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            {/* Desktop: CTA right */}
+            <div className="hidden lg:flex items-center shrink-0">
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  const el = document.querySelector('#contact')
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }}
+                className="px-5 py-2.5 font-bold rounded-none text-sm bg-primary-green text-white hover:bg-primary-green-dark transition-colors"
+              >
+                Get a quote
+              </a>
+            </div>
+
             {/* Mobile: invisible spacer so logo stays centered */}
-            <div className="flex-1 lg:flex-none lg:w-0" aria-hidden />
+            <div className="flex-1 lg:hidden" aria-hidden />
 
             {/* Mobile: centered logo */}
             <Link
@@ -221,35 +259,7 @@ export default function Header() {
               />
             </Link>
 
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const el = document.querySelector(link.href)
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }}
-                  className={`font-bold text-sm transition-colors ${isScrolled ? 'text-gray-900 hover:text-primary-green' : 'text-white/95 hover:text-white'}`}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const el = document.querySelector('#contact')
-                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                }}
-                className="px-5 py-2.5 font-bold rounded-none text-sm bg-primary-green text-white hover:bg-primary-green-dark transition-colors"
-              >
-                Get a quote
-              </a>
-            </div>
-
-            {/* Mobile: phone icon + hamburger (black, right side) */}
+            {/* Mobile: phone icon + hamburger right (Orkin-style) */}
             <div className="flex lg:hidden items-center gap-1 flex-1 justify-end">
               <a
                 href="tel:9542134572"
