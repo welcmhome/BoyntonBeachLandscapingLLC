@@ -22,7 +22,7 @@ export default function Hero() {
           aria-hidden
           className="absolute inset-0 w-full h-full min-w-full min-h-full object-cover object-center opacity-[0.22]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/96 via-white/94 to-white/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/98 via-white/96 to-white/92" />
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
       </div>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 min-h-0 lg:min-h-[70vh] items-start lg:items-center">
